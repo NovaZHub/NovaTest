@@ -1,0 +1,52 @@
+-- Raito Hub Script para Blox Fruits
+
+-- Importar a Orion Lib
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Raito Hub", HidePremium = false})
+
+-- Criar seção para coletar frutas
+local Tab = Window:MakeTab({Name = "Coletar Frutas"})
+local Section = Tab:AddSection({Name = "Coletar Frutas"})
+
+-- Criar botão para coletar frutas
+Section:AddButton({Name = "Coletar Frutas", Callback = function()
+    for _, fruit in pairs(workspace:GetDescendants()) do
+        if fruit.Name == "Fruit" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = fruit.CFrame
+            wait(0.1)
+        end
+    end
+end})
+
+-- Criar seção para atacar
+local Tab2 = Window:MakeTab({Name = "Atacar"})
+local Section2 = Tab2:AddSection({Name = "Atacar"})
+
+-- Criar botão para atacar
+Section2:AddButton({Name = "Atacar", Callback = function()
+    local combat = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework)
+    combat.attack()
+end})
+
+-- Criar seção para habilidades
+local Tab3 = Window:MakeTab({Name = "Habilidades"})
+local Section3 = Tab3:AddSection({Name = "Habilidades"})
+
+-- Criar botão para usar habilidade
+Section3:AddButton({Name = "Usar Habilidade", Callback = function()
+    -- Código para usar habilidade
+end})
+
+-- Criar seção para configurações
+local Tab4 = Window:MakeTab({Name = "Configurações"})
+local Section4 = Tab4:AddSection({Name = "Configurações"})
+
+-- Criar botão para salvar configurações
+Section4:AddButton({Name = "Salvar Configurações", Callback = function()
+    -- Código para salvar configurações
+end})
+
+-- Criar botão para carregar configurações
+Section4:AddButton({Name = "Carregar Configurações", Callback = function()
+    -- Código para carregar configurações
+end})
